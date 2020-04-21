@@ -4,15 +4,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.mockito.Mockito.*;
+import java.security.NoSuchAlgorithmException;
 
 public class GT4500Test {
 
   private GT4500 ship;
 
   @BeforeEach
-  public void init(){
-    this.ship = new GT4500();
+  public void init() {
+    try {
+      this.ship = new GT4500();
+    }
+    catch (NoSuchAlgorithmException e) {
+      //handle...
+    }
   }
 
   @Test

@@ -1,5 +1,7 @@
 package hu.bme.mit.spaceship;
 
+import java.security.NoSuchAlgorithmException;
+
 /**
 * A simple spaceship with two proton torpedo stores and four lasers
 */
@@ -10,9 +12,14 @@ public class GT4500 implements SpaceShip {
 
   private boolean wasPrimaryFiredLast = false;
 
-  public GT4500() {
-    this.primaryTorpedoStore = new TorpedoStore(15);
+  public GT4500() throws NoSuchAlgorithmException {
+    try {
+      this.primaryTorpedoStore = new TorpedoStore(15);
     this.secondaryTorpedoStore = new TorpedoStore(10);
+    }
+    catch (NoSuchAlgorithmException e) {
+      //handle...
+    }
   }
 
   public boolean fireLaser(FiringMode firingMode) {
